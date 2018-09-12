@@ -8,13 +8,13 @@ public class HomePage
 
     WebDriver driver;
 
-    @FindBy(id = "hplogo");
+    @FindBy(id = "hplogo")
     WebElement logo;
 
-    @FindBy(name = "q");
+    @FindBy(name = "q")
     WebElement barreRecherche;
 
-    @FindBy(css = ".lsb");
+    @FindBy(css = ".lsb")
     WebElement boutonRecherche;
 
     public HomePage(WebDriver driver)
@@ -23,8 +23,15 @@ public class HomePage
         PageFactory.initElements(driver, this);
     }
 
-    public void recherche(String text)
+    public void rechercheClic(String text)
     {
+        barreRecherche.sendKeys(text);
+        boutonRecherche.click();
+    }
 
+    public void rechercheEntree(String text)
+    {
+        barreRecherche.sendKeys(text);
+        barreRecherche.sendKeys(Keys.ENTER);
     }
 }
