@@ -28,10 +28,17 @@ public class SeleniumDest
     @Test
     public void testEntree()
     {
+        //Arrange
+        String expectedResult = "Site officiel de la ville de Bordeaux | Bordeaux";
+        int resultNumber = 0;
+
+        //Act
         HomePage homePage = new HomePage(driver);
         homePage.rechercheEntree("Bordeaux");
+        ResultPage resultPage = new ResultPage(driver);
+        String result = resultPage.getResult(resultNumber);
 
-        ResultPage resultPage = new ResultPage();
-  //      Assert.assertThat(resultPage.getResult(0), is("Site officiel de la ville de Bordeaux | Bordeaux"));
+        //Assert
+        Assert.assertThat(result, is(expectedResult));
     }
 }
