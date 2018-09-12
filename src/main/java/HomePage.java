@@ -15,7 +15,7 @@ public class HomePage
     @FindBy(name = "q")
     WebElement barreRecherche;
 
-    @FindBy(css = ".lsb")
+    @FindBy(className = "lsb")
     WebElement boutonRecherche;
 
     public HomePage(WebDriver driver)
